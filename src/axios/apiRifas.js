@@ -13,8 +13,7 @@ export const getRifas = async (id) => {
 };
 
 export const createRifas = async (body) => {
-  /*   const url = `${import.meta.env.VITE_CREATE_RIFAS_URL}/${body._id}`; */
-  const url = `http://localhost:3000/rifas/create`;
+  const url = `${import.meta.env.VITE_CREATE_RIFAS_URL}/rifas/create`;
   try {
     const response = await axios.post(url, body);
     console.log(body);
