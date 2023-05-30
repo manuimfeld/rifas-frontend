@@ -13,6 +13,7 @@ const Tablero = ({ numbersRifa, id, emoji }) => {
   const openModal = (e) => {
     setModalOpen(true)
     setIndexArr(e.target.innerText)
+    console.log(indexArr)
   }
 
   const closeModal = () => {
