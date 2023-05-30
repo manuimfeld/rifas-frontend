@@ -162,3 +162,21 @@ main {
   margin: 15px auto;
   display: block;
 }
+
+
+
+
+
+
+
+
+
+/* Add transition in open modal*/
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
