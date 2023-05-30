@@ -24,7 +24,7 @@ const Home = () => {
         {haveRifa && 
         <>
         <form action="" onSubmit={handleSubmit}>
-          <input type="number" id="id" maxLength={10}/>
+          <input type="number" id="id" maxLength={10} placeholder="Ingresar ID"/>
           <button>Entrar</button>
         </form>
         </>
