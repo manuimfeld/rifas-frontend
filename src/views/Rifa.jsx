@@ -15,7 +15,6 @@ const Rifa = () => {
       try {
         const data = await getRifas(id)
         setNumbersRifa(data)
-        console.log(numbersRifa)
       } catch (error) {
         console.error(error)
       }
