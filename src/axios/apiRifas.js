@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const getRifas = async (id) => {
-  const url = `${import.meta.env.VITE_RIFAS_URL}/rifas/${id}`
+  const url = `${import.meta.env.VITE_RIFAS_URL}/rifas/25`
   try {
     const response = await axios.get(url)
     return response.data
