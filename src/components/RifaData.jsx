@@ -1,13 +1,13 @@
-import Tablero from "./Tablero"
+import Tablero from './Tablero'
 
-const RifaData = ({numbersRifa, id}) => {
+const RifaData = ({ numbersRifa, id }) => {
   return (
-      <>
+    <>
       <main>
-      <h2>PRUEBA DE RIFA</h2>
-      <Tablero numbersRifa={numbersRifa} id={id}/>
+        <h2>PRUEBA DE RIFA</h2>
+        <Tablero numbersRifa={numbersRifa} id={id} />
       </main>
-      </>
+    </>
   )
 }
 

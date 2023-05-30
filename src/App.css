@@ -7,15 +7,19 @@
 
 body {
   margin: 0;
-  background: rgb(255,109,197);
-  background: linear-gradient(180deg, rgba(255,109,197,1) 0%, rgba(252, 61, 176, 0.65) 77%);
+  background: rgb(255, 109, 197);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 109, 197, 1) 0%,
+    rgba(252, 61, 176, 0.65) 77%
+  );
   font-family: 'Roboto', sans-serif;
 }
 
 header {
   width: 100vw;
   height: 60px;
-  background: #FC0FAB;
+  background: #fc0fab;
 }
 
 header h1 {
@@ -25,7 +29,7 @@ header h1 {
 nav {
   width: 100vw;
   height: 60px;
-  background: #FC0FAB;
+  background: #fc0fab;
   position: fixed;
   bottom: 0;
 }
@@ -43,25 +47,17 @@ nav ul {
 nav ul li button {
   border-radius: 15px;
   border: none;
-  background: #F39EC7;
-  color: #3F0071;
+  background: #f39ec7;
+  color: #3f0071;
   font-weight: 600;
   padding: 5px 15px;
 }
-
-
-
 
 main {
   width: calc(100vw - 40px);
   height: calc(100vh - 120px);
   margin: 0 auto;
 }
-
-
-
-
-
 
 .tablero {
   width: 100%;
@@ -81,39 +77,21 @@ main {
   width: 30px;
   border-radius: 50%;
   border: 1px solid black;
-  background: #FF56A7;
+  background: #ff56a7;
   color: black;
 }
 
 .tablero li:nth-child(2n) {
-  background-color: #F39EC7; /* Color de fondo para los elementos pares */
+  background-color: #f39ec7; /* Color de fondo para los elementos pares */
 }
 
-
-
-
-
-
-
-
-.form-formik label{
- color: black;
+.form-formik label {
+  color: black;
 }
 
 .error {
   color: red;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .home {
   height: 100vh;
@@ -122,12 +100,13 @@ main {
   flex-direction: column;
 }
 
-.home a, .home button {
-  color: #3F0071;
+.home a,
+.home button {
+  color: #3f0071;
   border-radius: 10px;
   border: none;
   text-decoration: none;
-  background: #F39EC7;
+  background: #f39ec7;
   min-width: 200px;
   height: fit-content;
   font-weight: 700;
@@ -149,27 +128,19 @@ main {
   border: none;
   height: 30px;
   margin-top: 25px;
-  background: #F39EC7;
-  color: #3F0071;
+  background: #f39ec7;
+  color: #3f0071;
   font-weight: 700;
   font-size: 18px;
   max-width: 100px;
 }
 
 .home form button {
-  background: #3F0071;
-  color: #F39EC7;
+  background: #3f0071;
+  color: #f39ec7;
   margin: 15px auto;
   display: block;
 }
-
-
-
-
-
-
-
-
 
 /* Add transition in open modal*/
 .ReactModal__Overlay {
@@ -177,6 +148,6 @@ main {
   transition: opacity 300ms ease-in-out;
 }
 
-.ReactModal__Overlay--after-open{
+.ReactModal__Overlay--after-open {
   opacity: 1;
 }
