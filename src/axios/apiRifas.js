@@ -1,8 +1,7 @@
 import axios from 'axios'
 
 export const getRifas = async (id) => {
-  const url = `${import.meta.env.VITE_GET_RIFAS_URL}/${id}`
-  console.log(url)
+  const url = `${import.meta.env.VITE_RIFAS_URL}/rifas/${id}`
   try {
     const response = await axios.get(url)
     return response.data
@@ -13,7 +12,7 @@ export const getRifas = async (id) => {
 }
 
 export const createRifas = async (body) => {
-  const url = `${import.meta.env.VITE_CREATE_RIFAS_URL}/rifas/create`
+  const url = `${import.meta.env.VITE_RIFAS_URL}/rifas/create`
   try {
     const response = await axios.post(url, body)
     console.log(body)
@@ -25,7 +24,9 @@ export const createRifas = async (body) => {
 }
 
 export const editRifas = async (id, body) => {
-  const url = `${import.meta.env.VITE_EDIT_RIFAS_URL}/${id}`
+  const url = `${import.meta.env.VITE_RIFAS_URL}/rifas/${id}/numeros/${
+    body.numero
+  }`
   try {
     const response = await axios.put(url, {
       nombre: body.nombre,

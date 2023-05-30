@@ -34,7 +34,7 @@ const Tablero = ({ numbersRifa, id, emoji }) => {
       </ul>
       <Modal isOpen={isModalOpen} onRequestClose={closeModal}>
         <p>Numero {indexArr}</p>
-        <FormFormik index={indexArr} />
+        <FormFormik index={indexArr} id={id} />
         <button onClick={closeModal}>Cerrar Modal</button>
       </Modal>
     </>

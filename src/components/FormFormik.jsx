@@ -1,13 +1,19 @@
 import { Field, Formik, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import { editRifas } from '../axios/apiRifas'
 
 const validationSchema = Yup.object({
   nombre: Yup.string().required('El nombre es requerido'),
 })
 
-const FormFormik = ({ index }) => {
+const FormFormik = ({ index, id }) => {
   const handleSubmit = (values) => {
-    console.log(index, values)
+    const body = {
+      estado_pago: values.estado_pago,
+      nombre: values.nombre,
+      numero: index - 1,
+    }
+    editRifas(id, body)
   }
 
   return (
@@ -15,6 +21,7 @@ const FormFormik = ({ index }) => {
       initialValues={{
         nombre: '',
         estado_pago: '',
+        numero: id,
       }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
