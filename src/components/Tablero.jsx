@@ -8,7 +8,7 @@ const Tablero = ({ numbersRifa, id, emoji }) => {
   const [isModalOpen, setModalOpen] = useState(false)
   const [indexArr, setIndexArr] = useState(null)
 
-  useEffect(() => {}, [numbersRifa])
+  useEffect(() => {}, [numbersRifa, indexArr])
 
   const openModal = (e) => {
     setModalOpen(true)
