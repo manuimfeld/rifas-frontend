@@ -20,7 +20,7 @@ const FormFormik = ({ index, id }) => {
     <Formik
       initialValues={{
         nombre: '',
-        estado_pago: '',
+        estado_pago: false,
         numero: id,
       }}
       validationSchema={validationSchema}
