@@ -4,7 +4,7 @@ import FormFormik from './FormFormik'
 
 Modal.setAppElement('#root')
 
-const Tablero = ({ numbersRifa, id }) => {
+const Tablero = ({ numbersRifa, id, emoji }) => {
   const [isModalOpen, setModalOpen] = useState(false)
   const [indexArr, setIndexArr] = useState(null)
 
@@ -26,7 +26,7 @@ const Tablero = ({ numbersRifa, id }) => {
           ? numbersRifa.map((number) => {
               return (
                 <li onClick={openModal} key={number._id}>
-                  {number.numero}
+                  {number.nombre !== '' ? emoji : number.numero}
                 </li>
               )
             })
