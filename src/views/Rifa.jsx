@@ -11,16 +11,13 @@ const Rifa = () => {
   const [selectedEmoji, setSelectedEmoji] = useState('❌')
 
   useEffect(() => {
-    console.log(id, 'USEEFFECT')
     const fetchData = async () => {
-      console.log(id, 'FETCDATA')
       try {
         const data = await getRifas(id)
         setNumbersRifa(data)
-        console.log(id, 'TRY')
+        console.log(numbersRifa)
       } catch (error) {
         console.error(error)
-        console.log(id, 'ERR')
       }
     }
     fetchData()
