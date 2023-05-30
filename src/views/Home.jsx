@@ -19,13 +19,12 @@ const Home = () => {
   return (
     <main className="home">
         <Header />
-        <Link to="/crear-rifa">Crear rifa</Link>
-        <p>¿Ya tenés una rifa?</p>
+        <Link to="/create-rifa">Crear rifa</Link>
         <button onClick={handleClick}>Entrar a una rifa</button>
         {haveRifa && 
         <>
         <form action="" onSubmit={handleSubmit}>
-          <input type="number" id="id"/>
+          <input type="number" id="id" maxLength={10}/>
           <button>Entrar</button>
         </form>
         </>

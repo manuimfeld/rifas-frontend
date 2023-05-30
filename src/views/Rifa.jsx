@@ -2,7 +2,7 @@ import Header from "../components/Header"
 import RifaData from "../components/RifaData"
 import Nav from "../components/Nav"
 import { useEffect, useState } from "react"
-import getRifas from "../axios/getRifas"
+import { getRifas } from "../axios/apiRifas"
 import { useParams } from "react-router-dom"
 
 const Rifa = () => {

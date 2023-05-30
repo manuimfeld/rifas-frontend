@@ -118,8 +118,47 @@ main {
 .home {
   height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
 }
 
-.home h1 {
-  margin: 0;
+.home a, .home button {
+  color: #3F0071;
+  border-radius: 10px;
+  border: none;
+  text-decoration: none;
+  background: #F39EC7;
+  min-width: 200px;
+  height: fit-content;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0 auto;
+}
+
+.home a {
+  margin-top: 25vh;
+  padding: 15px 30px;
+}
+
+.home button {
+  margin-top: 50px;
+  padding: 15px 60px;
+}
+
+.home form input {
+  border: none;
+  height: 30px;
+  margin-top: 25px;
+  background: #F39EC7;
+  color: #3F0071;
+  font-weight: 700;
+  font-size: 18px;
+  max-width: 100px;
+}
+
+.home form button {
+  background: #3F0071;
+  color: #F39EC7;
+  margin: 15px auto;
+  display: block;
 }
