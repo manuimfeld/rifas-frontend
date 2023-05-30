@@ -11,7 +11,7 @@ const FormFormik = ({ index, id }) => {
     const body = {
       estado_pago: values.estado_pago,
       nombre: values.nombre,
-      numero: index - 1,
+      numero: index,
     }
     editRifas(id, body)
   }
