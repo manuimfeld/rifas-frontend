@@ -4,7 +4,7 @@ export const getRifas = async (id) => {
   const url = `${import.meta.env.VITE_RIFAS_URL}/rifas/${id}`
   try {
     const response = await axios.get(url)
-    console.log(response.data, url)
+    console.log(url)
     return response.data
   } catch (error) {
     console.error(error)
