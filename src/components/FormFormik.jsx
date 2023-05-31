@@ -3,40 +3,40 @@ import * as Yup from 'yup'
 import { editRifas } from '../axios/apiRifas'
 
 const validationSchema = Yup.object({
-  nombre: Yup.string().required('El nombre es requerido'),
+  name: Yup.string().required('El nombre es requerido'),
 })
 
-const FormFormik = ({ index, id }) => {
+const FormFormik = ({ dataRifa, indexArr }) => {
   const handleSubmit = (values) => {
     const body = {
-      estado_pago: values.estado_pago,
-      nombre: values.nombre,
-      numero: index,
+      paid: values.paid,
+      name: values.name,
+      number: indexArr,
     }
-    editRifas(id, body)
+    console.log(body)
+    editRifas(dataRifa._id, body)
   }
 
   return (
     <Formik
       initialValues={{
-        nombre: '',
-        estado_pago: false,
-        numero: id,
+        name: '',
+        paid: false,
       }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
       <Form className="form-formik">
         <div>
-          <label htmlFor="nombre">Nombre:</label>
-          <Field type="text" id="nombre" name="nombre" />
-          <ErrorMessage name="nombre" component="div" className="error" />
+          <label htmlFor="name">Nombre:</label>
+          <Field type="text" id="name" name="name" />
+          <ErrorMessage name="name" component="div" className="error" />
         </div>
         <div>
-          <label htmlFor="estado_pago">Pagó:</label>
-          <Field type="checkbox" id="estado_pago" name="estado_pago" />
+          <label htmlFor="paid">Pagó:</label>
+          <Field type="checkbox" id="paid" name="paid" />
         </div>
-        <button type="submit">Enviar</button>
+        <button type="submit">Guardar</button>
       </Form>
     </Formik>
   )
