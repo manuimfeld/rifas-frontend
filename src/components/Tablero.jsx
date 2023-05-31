@@ -4,16 +4,15 @@ import FormFormik from './FormFormik'
 
 Modal.setAppElement('#root')
 
-const Tablero = ({ numbersRifa, id, emoji }) => {
+const Tablero = ({ dataRifa, emoji }) => {
   const [isModalOpen, setModalOpen] = useState(false)
   const [indexArr, setIndexArr] = useState(null)
 
-  useEffect(() => {}, [numbersRifa, indexArr])
+  useEffect(() => {}, [dataRifa, indexArr])
 
-  const openModal = (e) => {
+  const openModal = (i) => {
     setModalOpen(true)
-    setIndexArr(e.target.innerText)
-    console.log(indexArr)
+    setIndexArr(i)
   }
 
   const closeModal = () => {
@@ -23,20 +22,22 @@ const Tablero = ({ numbersRifa, id, emoji }) => {
   return (
     <>
       <ul className="tablero">
-        {numbersRifa !== undefined
-          ? numbersRifa.map((number) => {
-              return (
-                <li onClick={openModal} key={number._id}>
-                  {number.nombre !== '' ? emoji : number.numero}
-                </li>
-              )
-            })
-          : null}
+        {dataRifa.numbers == undefined ? (
+          <h1>CARGANDO...</h1>
+        ) : (
+          dataRifa.numbers.map((numberMap, i) => {
+            return (
+              <li onClick={() => openModal(i)} key={numberMap._id}>
+                {numberMap.name !== '' ? emoji : numberMap.number}
+              </li>
+            )
+          })
+        )}
       </ul>
       <Modal isOpen={isModalOpen} onRequestClose={closeModal}>
         <p>Numero {indexArr}</p>
-        <FormFormik index={indexArr} id={id} />
-        <button onClick={closeModal}>Cerrar Modal</button>
+        <FormFormik dataRifa={dataRifa} indexArr={indexArr} />
+        <button onClick={closeModal}>Cerrar menú</button>
       </Modal>
     </>
   )
