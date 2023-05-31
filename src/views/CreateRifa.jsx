@@ -11,10 +11,10 @@ registerLocale('es', es)
 setDefaultLocale('es')
 
 const validationSchema = Yup.object({
-  id_rifa: Yup.number().required('Escribí un ID válido (solo números)'),
-  titulo_rifa: Yup.string().required('Escribí un título'),
-  fecha_rifa: Yup.date().required('Selecciona la fecha de la rifa'),
-  horario_rifa: Yup.string().required('Selecciona el horario de la rifa'),
+  _id: Yup.number().required('Escribí un ID válido (solo números)'),
+  title: Yup.string().required('Escribí un título'),
+  date: Yup.date().required('Selecciona la fecha de la rifa'),
+  hour: Yup.string().required('Selecciona el horario de la rifa'),
 })
 
 const CreateRifa = () => {
@@ -27,10 +27,10 @@ const CreateRifa = () => {
     }).format(values.fecha_rifa)
 
     const body = {
-      _id: values.id_rifa,
-      titulo: values.titulo_rifa,
-      fecha: formattedDate,
-      horario: values.horario_rifa,
+      _id: values._id,
+      title: values.title,
+      date: formattedDate,
+      hour: values.hour,
     }
 
     const callApi = async () => {
@@ -48,10 +48,10 @@ const CreateRifa = () => {
     <main>
       <Formik
         initialValues={{
-          id_rifa: '',
-          titulo_rifa: '',
-          fecha_rifa: '',
-          horario_rifa: '',
+          _id: '',
+          title: '',
+          date: '',
+          hour: '',
         }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
@@ -59,52 +59,40 @@ const CreateRifa = () => {
         {({ setFieldValue, values }) => (
           <Form className="form-formik">
             <div>
-              <label htmlFor="id_rifa">ID:</label>
-              <Field type="number" id="id_rifa" name="id_rifa" />
-              <ErrorMessage name="id_rifa" component="div" className="error" />
+              <label htmlFor="_id">ID:</label>
+              <Field type="number" id="_id" name="_id" />
+              <ErrorMessage name="_id" component="div" className="error" />
             </div>
             <div>
-              <label htmlFor="titulo_rifa">Titulo:</label>
-              <Field type="text" id="titulo_rifa" name="titulo_rifa" />
-              <ErrorMessage
-                name="titulo_rifa"
-                component="div"
-                className="error"
-              />
+              <label htmlFor="title">Titulo:</label>
+              <Field type="text" id="title" name="title" />
+              <ErrorMessage name="title" component="div" className="error" />
             </div>
             <div>
-              <label htmlFor="fecha_rifa">Selecciona una fecha:</label>
+              <label htmlFor="date">Selecciona una fecha:</label>
               <DatePicker
-                id="fecha_rifa"
-                name="fecha_rifa"
-                selected={values.fecha_rifa}
-                onChange={(date) => setFieldValue('fecha_rifa', date)}
+                id="date"
+                name="date"
+                selected={values.date}
+                onChange={(dateMap) => setFieldValue('date', dateMap)}
                 dateFormat="dd 'de' MMMM"
                 placeholderText="Selecciona una fecha"
                 showMonthDropdown
                 showYearDropdown
                 dropdownMode="select"
               />
-              <ErrorMessage
-                name="fecha_rifa"
-                component="div"
-                className="error"
-              />
+              <ErrorMessage name="date" component="div" className="error" />
             </div>
             <div>
-              <label htmlFor="horario_rifa">Selecciona una opción:</label>
-              <Field as="select" id="horario_rifa" name="horario_rifa">
+              <label htmlFor="hour">Selecciona una opción:</label>
+              <Field as="select" id="hour" name="hour">
                 <option value="">Seleccionar...</option>
                 <option value="Matutina">Primera</option>
                 <option value="Vespertina">Matutina</option>
                 <option value="Inicio">Vespentina</option>
                 <option value="Fin">Nocturna</option>
               </Field>
-              <ErrorMessage
-                name="horario_rifa"
-                component="div"
-                className="error"
-              />
+              <ErrorMessage name="hour" component="div" className="error" />
             </div>
             <button type="submit">Enviar</button>
           </Form>
