@@ -6,7 +6,7 @@ import { getRifas } from '../axios/apiRifas'
 import { useParams } from 'react-router-dom'
 
 const Rifa = () => {
-  const [numbersRifa, setNumbersRifa] = useState([])
+  const [dataRifa, setDataRifa] = useState([])
   const { id } = useParams()
   const [selectedEmoji, setSelectedEmoji] = useState('❌')
 
@@ -14,7 +14,8 @@ const Rifa = () => {
     const fetchData = async () => {
       try {
         const data = await getRifas(id)
-        setNumbersRifa(data)
+        console.log(data)
+        setDataRifa(data)
       } catch (error) {
         console.error(error)
       }
@@ -31,11 +32,7 @@ const Rifa = () => {
   return (
     <>
       <Header />
-      <RifaData
-        numbersRifa={numbersRifa.numeros}
-        id={numbersRifa._id}
-        emoji={selectedEmoji}
-      />
+      <RifaData dataRifa={dataRifa} emoji={selectedEmoji} />
       <Nav onEmojiSelect={handleEmojiSelect} />
     </>
   )
