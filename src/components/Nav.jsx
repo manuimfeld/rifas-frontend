@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import EmojiPicker from 'emoji-picker-react'
 import Modal from 'react-modal'
+import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 const Nav = ({ onEmojiSelect }) => {
   const [isModalOpen, setModalOpen] = useState(false)
 
-  const openModal = (e) => {
+  const { id } = useParams()
+
+  const openModal = () => {
     setModalOpen(true)
   }
 
@@ -28,12 +32,18 @@ const Nav = ({ onEmojiSelect }) => {
           <button>COMPARTIR</button>
         </li>
         <li>
-          <button>LISTA</button>
+          <Link to={`/list/${id}`}>Lista</Link>
         </li>
       </ul>
-      <Modal isOpen={isModalOpen} onRequestClose={closeModal}>
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        closeTimeoutMS={100}
+      >
         <EmojiPicker height={500} width={235} onEmojiClick={handleEmojiClick} />
-        <button onClick={closeModal}>Cerrar Modal</button>
+        <button onClick={closeModal} className="btn-close-modal">
+          Cerrar menú
+        </button>
       </Modal>
     </nav>
   )

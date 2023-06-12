@@ -35,9 +35,11 @@ const Tablero = ({ dataRifa, emoji }) => {
         )}
       </ul>
       <Modal isOpen={isModalOpen} onRequestClose={closeModal}>
-        <p>Numero {indexArr}</p>
-        <FormFormik dataRifa={dataRifa} indexArr={indexArr} />
-        <button onClick={closeModal}>Cerrar menú</button>
+        <FormFormik
+          dataRifa={dataRifa}
+          indexArr={indexArr}
+          closeModal={closeModal}
+        />
       </Modal>
     </>
   )

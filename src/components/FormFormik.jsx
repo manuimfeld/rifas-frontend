@@ -6,7 +6,7 @@ const validationSchema = Yup.object({
   name: Yup.string().required('El nombre es requerido'),
 })
 
-const FormFormik = ({ dataRifa, indexArr }) => {
+const FormFormik = ({ dataRifa, indexArr, closeModal }) => {
   const handleSubmit = (values) => {
     const body = {
       paid: values.paid,
@@ -14,31 +14,37 @@ const FormFormik = ({ dataRifa, indexArr }) => {
       number: indexArr,
     }
     console.log(body)
-    editRifas(dataRifa._id, body)
+    editRifas(dataRifa._id, body, closeModal)
   }
 
   return (
-    <Formik
-      initialValues={{
-        name: '',
-        paid: false,
-      }}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-    >
-      <Form className="form-formik">
-        <div>
-          <label htmlFor="name">Nombre:</label>
-          <Field type="text" id="name" name="name" />
-          <ErrorMessage name="name" component="div" className="error" />
-        </div>
-        <div>
-          <label htmlFor="paid">Pagó:</label>
-          <Field type="checkbox" id="paid" name="paid" />
-        </div>
-        <button type="submit">Guardar</button>
-      </Form>
-    </Formik>
+    <>
+      <Formik
+        initialValues={{
+          name: '',
+          paid: false,
+        }}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        <Form className="form-formik new-number">
+          <p>Número: {indexArr + 1}</p>
+          <div>
+            <label htmlFor="name">Nombre:</label>
+            <Field type="text" id="name" name="name" />
+            <ErrorMessage name="name" component="div" className="error" />
+          </div>
+          <div>
+            <label htmlFor="paid">Pagó:</label>
+            <Field type="checkbox" id="paid" name="paid" />
+          </div>
+          <button type="submit">Guardar</button>
+          <button onClick={closeModal} className="btn-close-modal">
+            Cerrar menú
+          </button>
+        </Form>
+      </Formik>
+    </>
   )
 }
 

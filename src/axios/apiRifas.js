@@ -27,7 +27,7 @@ export const createRifas = async (body) => {
   }
 }
 
-export const editRifas = async (id, body) => {
+export const editRifas = async (id, body, closeModal) => {
   const url = `${import.meta.env.VITE_RIFAS_URL}/rifas/${id}/numeros`
   try {
     const response = await axios.put(url, {
@@ -35,7 +35,7 @@ export const editRifas = async (id, body) => {
       paid: body.paid,
       number: body.number,
     })
-    return response.data
+    return response.data, closeModal()
   } catch (error) {
     console.error(error)
     throw error
