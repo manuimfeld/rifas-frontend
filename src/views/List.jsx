@@ -31,7 +31,7 @@ const List = () => {
         </Link>
         <h2>LISTA</h2>
         {listRifa.length <= 0 ? (
-          <h1>CARGANDO...</h1>
+          <h2>No hay ningún número vendido</h2>
         ) : (
           <>
             <table className="styled-table">

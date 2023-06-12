@@ -14,7 +14,14 @@ const FormFormik = ({ dataRifa, indexArr, closeModal }) => {
       number: indexArr,
     }
     console.log(body)
-    editRifas(dataRifa._id, body, closeModal)
+    editRifas(
+      dataRifa._id,
+      body,
+      closeModal,
+      setTimeout(() => {
+        window.location.reload()
+      }, 1000)
+    )
   }
 
   return (

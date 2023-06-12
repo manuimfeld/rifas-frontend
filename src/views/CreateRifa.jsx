@@ -45,7 +45,8 @@ const CreateRifa = () => {
   }
 
   return (
-    <main>
+    <main className="create-rifa">
+      <h1>Detalles de la rifa</h1>
       <Formik
         initialValues={{
           _id: '',
@@ -57,18 +58,18 @@ const CreateRifa = () => {
         onSubmit={handleSubmit}
       >
         {({ setFieldValue, values }) => (
-          <Form className="form-formik">
-            <div>
+          <Form className="form-formik new-rifa">
+            <div className="div-label">
               <label htmlFor="_id">ID:</label>
               <Field type="number" id="_id" name="_id" />
               <ErrorMessage name="_id" component="div" className="error" />
             </div>
-            <div>
+            <div className="div-label">
               <label htmlFor="title">Titulo:</label>
               <Field type="text" id="title" name="title" />
               <ErrorMessage name="title" component="div" className="error" />
             </div>
-            <div>
+            <div className="div-label">
               <label htmlFor="date">Selecciona una fecha:</label>
               <DatePicker
                 id="date"
@@ -83,7 +84,7 @@ const CreateRifa = () => {
               />
               <ErrorMessage name="date" component="div" className="error" />
             </div>
-            <div>
+            <div className="div-label">
               <label htmlFor="hour">Selecciona una opción:</label>
               <Field as="select" id="hour" name="hour">
                 <option value="">Seleccionar...</option>
@@ -94,7 +95,9 @@ const CreateRifa = () => {
               </Field>
               <ErrorMessage name="hour" component="div" className="error" />
             </div>
-            <button type="submit">Enviar</button>
+            <button type="submit" className="btn-create-rifa">
+              Crear rifa
+            </button>
           </Form>
         )}
       </Formik>
