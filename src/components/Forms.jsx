@@ -12,6 +12,7 @@ export const FormCreateRifa = ({ createRifaAndNavigate }) => {
         title: '',
         date: '',
         hour: '',
+        numbers: 0,
       }}
       validationSchema={createRifaValidation}
       onSubmit={createRifaAndNavigate}
@@ -53,6 +54,11 @@ export const FormCreateRifa = ({ createRifaAndNavigate }) => {
               <option value="Fin">Nocturna</option>
             </Field>
             <ErrorMessage name="hour" component="div" className="error" />
+          </div>
+          <div className="div-label">
+            <label htmlFor="numbers">ID:</label>
+            <Field type="number" id="numbers" name="numbers" />
+            <ErrorMessage name="numbers" component="div" className="error" />
           </div>
           <button type="submit" className="btn-create-rifa">
             Crear rifa

@@ -5,6 +5,7 @@ export const createRifaValidation = Yup.object({
   title: Yup.string().required('Escribí un título'),
   date: Yup.date().required('Selecciona la fecha de la rifa'),
   hour: Yup.string().required('Selecciona el horario de la rifa'),
+  numbers: Yup.number().required('Ingresá la cantidad de números'),
 })
 
 export const editRifaValidation = Yup.object({
