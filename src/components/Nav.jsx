@@ -29,9 +29,6 @@ const Nav = ({ onEmojiSelect }) => {
           <button onClick={openModal}>EMOJI</button>
         </li>
         <li>
-          <button>COMPARTIR</button>
-        </li>
-        <li>
           <Link to={`/list/${id}`}>Lista</Link>
         </li>
       </ul>
