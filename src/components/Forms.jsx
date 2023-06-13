@@ -56,7 +56,7 @@ export const FormCreateRifa = ({ createRifaAndNavigate }) => {
             <ErrorMessage name="hour" component="div" className="error" />
           </div>
           <div className="div-label">
-            <label htmlFor="numbers">ID:</label>
+            <label htmlFor="numbers">Cantidad de números:</label>
             <Field type="number" id="numbers" name="numbers" />
             <ErrorMessage name="numbers" component="div" className="error" />
           </div>

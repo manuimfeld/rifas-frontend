@@ -25,9 +25,11 @@ const CreateRifa = () => {
       title: values.title,
       date: formattedDate,
       hour: values.hour,
+      numbers: values.numbers,
     }
 
     try {
+      console.log(body)
       await createRifa(body)
       navigate(`/rifa/${body._id}`)
     } catch (error) {

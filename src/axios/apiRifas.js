@@ -21,6 +21,7 @@ export const createRifa = async (body) => {
       title: body.title,
       date: body.date,
       hour: body.hour,
+      numbers: body.numbers,
     })
     return response.data
   } catch (error) {
