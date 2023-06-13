@@ -4,7 +4,7 @@ import Tablero from './Tablero'
 const RifaData = ({ dataRifa, emoji }) => {
   return (
     <>
-      <main>
+      <main id="tablero">
         <Link to={`/`} className="back-route">
           ← Volver
         </Link>

@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom'
 const Rifa = () => {
   const [dataRifa, setDataRifa] = useState([])
   const { id } = useParams()
-  const [selectedEmoji, setSelectedEmoji] = useState('❌')
+  const [selectedEmoji, setSelectedEmoji] = useState('😎')
 
   useEffect(() => {
     const fetchData = async () => {
