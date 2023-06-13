@@ -4,8 +4,31 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Rifa from './views/Rifa'
 import CreateRifa from './views/CreateRifa'
 import List from './views/List'
+import { useEffect } from 'react'
 
 function App() {
+  useEffect(() => {
+    const subscribeToPushNotifications = async () => {
+      const registration = await navigator.serviceWorker.register(
+        '/service-worker.js'
+      )
+      const subscription = await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: import.meta.env.VITE_PUBLIC_VAPID_KEY,
+      })
+
+      await fetch('/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(subscription),
+      })
+    }
+
+    subscribeToPushNotifications()
+  }, [])
+
   return (
     <>
       <BrowserRouter>
