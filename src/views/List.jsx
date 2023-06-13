@@ -13,7 +13,9 @@ const List = () => {
       try {
         const data = await getRifas(id)
         const numbers = data.numbers
-        const newList = numbers.filter((number) => number.name !== '')
+        const newList = numbers
+          .filter((number) => number.name !== '')
+          .sort((a, b) => a.numero - b.numero)
         setListRifa(newList)
       } catch (error) {
         console.error(error)
