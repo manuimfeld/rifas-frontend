@@ -4,16 +4,16 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const Home = () => {
   const navigate = useNavigate()
-  const [haveRifa, setHaveRifa] = useState(false)
+  const [isRifaSelected, setIsRifaSelected] = useState(false)
 
-  const handleClick = () => {
-    setHaveRifa(true)
+  const handleRifaEntryClick = () => {
+    setIsRifaSelected(true)
   }
 
-  const handleSubmit = (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault()
     const id = e.target.id.value
-    if (id !== '' && id !== null) {
+    if (id) {
       navigate(`/rifa/${id}`)
     }
   }
@@ -22,19 +22,17 @@ const Home = () => {
     <main className="home">
       <Header />
       <Link to="/create-rifa">Crear rifa</Link>
-      <button onClick={handleClick}>Entrar a una rifa</button>
-      {haveRifa && (
-        <>
-          <form action="" onSubmit={handleSubmit}>
-            <input
-              type="number"
-              id="id"
-              maxLength={10}
-              placeholder="Ingresar ID"
-            />
-            <button>Entrar</button>
-          </form>
-        </>
+      <button onClick={handleRifaEntryClick}>Entrar a una rifa</button>
+      {isRifaSelected && (
+        <form onSubmit={handleFormSubmit}>
+          <input
+            type="number"
+            id="id"
+            maxLength={10}
+            placeholder="Ingresar ID"
+          />
+          <button>Entrar</button>
+        </form>
       )}
     </main>
   )

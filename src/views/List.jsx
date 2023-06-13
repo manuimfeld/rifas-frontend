@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Header from '../components/Header'
 import { Link, useParams } from 'react-router-dom'
-import { getRifas } from '../axios/apiRifas'
+import { getRifaById } from '../axios/apiRifas'
 import { useState } from 'react'
 
 const List = () => {
@@ -11,7 +11,7 @@ const List = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getRifas(id)
+        const data = await getRifaById(id)
         const numbers = data.numbers
         const newList = numbers
           .filter((number) => number.name !== '')
@@ -46,7 +46,7 @@ const List = () => {
               </thead>
               <tbody>
                 {listRifa.map((numberMap, index) => {
-                  if (index % 2 == 0) {
+                  if (index % 2 === 0) {
                     return (
                       <tr key={numberMap._id}>
                         <td>{numberMap.name}</td>

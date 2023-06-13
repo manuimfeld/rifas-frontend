@@ -1,14 +1,7 @@
-import { Field, Formik, Form, ErrorMessage } from 'formik'
-import * as Yup from 'yup'
-import { editRifas } from '../axios/apiRifas'
-
-const validationSchema = Yup.object({
-  name: Yup.string().required('El nombre es requerido'),
-})
+import { editRifa } from '../axios/apiRifas'
+import { FormEditRifa } from './Forms'
 
 const FormFormik = ({ dataRifa, indexArr, closeModal }) => {
-  console.log(dataRifa.numbers[indexArr])
-
   const handleSubmit = (values) => {
     const body = {
       paid: values.paid,
@@ -16,7 +9,7 @@ const FormFormik = ({ dataRifa, indexArr, closeModal }) => {
       number: indexArr,
     }
     console.log(body)
-    editRifas(
+    editRifa(
       dataRifa._id,
       body,
       closeModal,
@@ -28,31 +21,12 @@ const FormFormik = ({ dataRifa, indexArr, closeModal }) => {
 
   return (
     <>
-      <Formik
-        initialValues={{
-          name: dataRifa.numbers[indexArr].name,
-          paid: dataRifa.numbers[indexArr].paid,
-        }}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        <Form className="form-formik new-number">
-          <p>Número: {indexArr + 1}</p>
-          <div>
-            <label htmlFor="name">Nombre:</label>
-            <Field type="text" id="name" name="name" />
-            <ErrorMessage name="name" component="div" className="error" />
-          </div>
-          <div>
-            <label htmlFor="paid">Pagó:</label>
-            <Field type="checkbox" id="paid" name="paid" />
-          </div>
-          <button type="submit">Guardar</button>
-          <button onClick={closeModal} className="btn-close-modal">
-            Cerrar menú
-          </button>
-        </Form>
-      </Formik>
+      <FormEditRifa
+        dataRifa={dataRifa}
+        indexArr={indexArr}
+        handleSubmit={handleSubmit}
+        closeModal={closeModal}
+      />
     </>
   )
 }

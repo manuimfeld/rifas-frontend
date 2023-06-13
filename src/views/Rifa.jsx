@@ -2,7 +2,7 @@ import Header from '../components/Header'
 import RifaData from '../components/RifaData'
 import Nav from '../components/Nav'
 import { useEffect, useState } from 'react'
-import { getRifas } from '../axios/apiRifas'
+import { getRifaById } from '../axios/apiRifas'
 import { useParams } from 'react-router-dom'
 
 const Rifa = () => {
@@ -13,7 +13,7 @@ const Rifa = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getRifas(id)
+        const data = await getRifaById(id)
         console.log(data)
         setDataRifa(data)
       } catch (error) {
@@ -22,8 +22,6 @@ const Rifa = () => {
     }
     fetchData()
   }, [id])
-
-  useEffect(() => {}, [selectedEmoji])
 
   const handleEmojiSelect = (emoji) => {
     setSelectedEmoji(emoji)
