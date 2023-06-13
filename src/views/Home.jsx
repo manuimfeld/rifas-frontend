@@ -13,7 +13,9 @@ const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const id = e.target.id.value
-    navigate(`/rifa/${id}`)
+    if (id !== '' && id !== null) {
+      navigate(`/rifa/${id}`)
+    }
   }
 
   return (
