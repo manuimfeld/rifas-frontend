@@ -8,25 +8,31 @@ import { useEffect } from 'react'
 
 function App() {
   useEffect(() => {
-    const subscribeToPushNotifications = async () => {
-      const registration = await navigator.serviceWorker.register(
-        '/service-worker.js'
-      )
-      const subscription = await registration.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: import.meta.env.VITE_PUBLIC_VAPID_KEY,
-      })
+    const subscribeToNotifications = async () => {
+      try {
+        // Obtén el objeto de suscripción
+        const registration = await navigator.serviceWorker.ready
+        const subscription = await registration.pushManager.getSubscription()
 
-      await fetch('/subscribe', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(subscription),
-      })
+        if (subscription) {
+          // Si ya está suscrito, envía la suscripción al backend
+          await fetch('localhost:3000/subscribe', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(subscription),
+          })
+          console.log('Suscrito correctamente')
+        } else {
+          console.log('El usuario aún no se ha suscrito')
+        }
+      } catch (error) {
+        console.error('Error al suscribirse a las notificaciones:', error)
+      }
     }
 
-    subscribeToPushNotifications()
+    subscribeToNotifications()
   }, [])
 
   return (
