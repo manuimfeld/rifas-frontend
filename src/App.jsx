@@ -16,7 +16,7 @@ function App() {
 
         if (subscription) {
           // Si ya está suscrito, envía la suscripción al backend
-          await fetch('localhost:3000/subscribe', {
+          await fetch(`${import.meta.env.VITE_RIFAS_URL}/subscribe`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
