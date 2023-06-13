@@ -7,6 +7,8 @@ const validationSchema = Yup.object({
 })
 
 const FormFormik = ({ dataRifa, indexArr, closeModal }) => {
+  console.log(dataRifa.numbers[indexArr])
+
   const handleSubmit = (values) => {
     const body = {
       paid: values.paid,
@@ -28,8 +30,8 @@ const FormFormik = ({ dataRifa, indexArr, closeModal }) => {
     <>
       <Formik
         initialValues={{
-          name: '',
-          paid: false,
+          name: dataRifa.numbers[indexArr].name,
+          paid: dataRifa.numbers[indexArr].paid,
         }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}

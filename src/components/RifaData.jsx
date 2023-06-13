@@ -8,7 +8,7 @@ const RifaData = ({ dataRifa, emoji }) => {
         <Link to={`/`} className="back-route">
           ← Volver
         </Link>
-        <h2>RIFA {dataRifa._id}</h2>
+        {/* <h2>RIFA {dataRifa._id}</h2> */}
         <Tablero dataRifa={dataRifa} emoji={emoji} />
       </main>
     </>
