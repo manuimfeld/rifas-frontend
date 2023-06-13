@@ -32,7 +32,19 @@ function App() {
       }
     }
 
+    const requestNotificationPermission = async () => {
+      try {
+        const permission = await Notification.requestPermission()
+        if (permission === 'granted') {
+          // El usuario ha dado permiso, puedes llamar a la función para suscribirse a las notificaciones
+          subscribeToNotifications()
+        }
+      } catch (error) {
+        console.error('Error al solicitar el permiso de notificación:', error)
+      }
+    }
     subscribeToNotifications()
+    requestNotificationPermission()
   }, [])
 
   return (
