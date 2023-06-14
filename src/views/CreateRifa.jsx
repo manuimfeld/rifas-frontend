@@ -39,7 +39,6 @@ const CreateRifa = () => {
 
   return (
     <main className="create-rifa">
-      <h1>Detalles de la rifa</h1>
       <FormCreateRifa createRifaAndNavigate={createRifaAndNavigate} />
     </main>
   )

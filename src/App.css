@@ -107,7 +107,7 @@ main {
 }
 
 .error {
-  color: red;
+  color: #6200ee;
 }
 
 .home {
@@ -318,28 +318,35 @@ main {
 }
 
 .create-rifa h1 {
-  position: absolute;
-  top: 20px;
+  margin: 0 0 10px 0;
+  text-align: center;
 }
 
 .new-rifa {
   text-align: left;
-  height: 75%;
-  width: 100%;
+  min-height: 75%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 0 50px;
   align-items: center;
+  background: #ff56a7;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .new-rifa .div-label {
-  width: 55%;
   margin: 0 auto 20px auto;
+  width: 100%;
 }
 
 .new-rifa .div-label label {
   display: block;
+  color: #2e2e2e;
 }
 .new-rifa .div-label select {
   width: 100%;
@@ -349,4 +356,21 @@ main {
 .react-datepicker-wrapper div {
   margin: 0 auto 0 auto !important;
   padding: 0;
+}
+
+.div-label input,
+.div-label select {
+  background: white;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  width: calc(100% - 20px);
+}
+
+.new-rifa input:focus-visible {
+  outline: 2px solid #6200ee;
+}
+
+.new-rifa input::placeholder {
+  font-family: 'Roboto', sans-serif;
 }
