@@ -33,7 +33,12 @@ export const FormCreateRifa = ({ createRifaAndNavigate }) => {
             </div>
             <div className="div-label">
               <label htmlFor="title">Titulo:</label>
-              <Field type="text" id="title" name="title" />
+              <Field
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Escribí el título de la rifa"
+              />
               <ErrorMessage name="title" component="div" className="error" />
             </div>
             <div className="div-label">
